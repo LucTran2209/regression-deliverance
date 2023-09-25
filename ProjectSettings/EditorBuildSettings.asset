@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b3d8c677e366e3b4198b52bf749d3275
+  - enabled: 1
+    path: Assets/Scenes/TotalMap.unity
+    guid: d34e06c264793ec4aa912c775265491f
+  - enabled: 1
     path: Assets/Scenes/WolfMap.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
