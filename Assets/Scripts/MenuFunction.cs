@@ -33,10 +33,10 @@ public class MenuFunction : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    // Player click choose angel map
+    // Player click choose bear map
     public void LoadAngelMap()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     // Player click choose dwarf map
