@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NguoiLun.unity
     guid: 8de3f91f5e0e28248a31290ae130926d
+  - enabled: 1
+    path: Assets/Scenes/BearMap.unity
+    guid: bdd0f7e31ad6e9f4e856971a57ae621f
   m_configObjects: {}
