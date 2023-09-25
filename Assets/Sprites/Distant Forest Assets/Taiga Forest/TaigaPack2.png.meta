@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,7 +131,7 @@ TextureImporter:
         width: 31
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: TaigaPack2_1
       rect:
         serializedVersion: 2
-        x: 59
-        y: 372
-        width: 86
-        height: 195
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 54
+        y: 385
+        width: 91
+        height: 182
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.14986344}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,11 +169,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 68
-        y: 571
+        y: 576
         width: 127
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 37
+      alignment: 9
+      pivot: {x: 0.49429813, y: 0.73485667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
         width: 111
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: TaigaPack2_4
       rect:
         serializedVersion: 2
-        x: 212
-        y: 320
-        width: 53.333332
-        height: 320
+        x: 224
+        y: 246
+        width: 29
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: TaigaPack2_5
       rect:
         serializedVersion: 2
-        x: 265
-        y: 320
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 222
+        y: 198
+        width: 43
+        height: 35
+      alignment: 9
+      pivot: {x: 0.53368074, y: 0.49999914}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: TaigaPack2_6
       rect:
         serializedVersion: 2
-        x: 318
-        y: 320
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 193
+        y: 384
+        width: 193
+        height: 231
+      alignment: 9
+      pivot: {x: 0.45872742, y: 0.13635927}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: TaigaPack2_7
       rect:
         serializedVersion: 2
-        x: 371
-        y: 320
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 403
+        y: 385
+        width: 95
+        height: 243
+      alignment: 9
+      pivot: {x: 0.484755, y: 0.12451687}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: TaigaPack2_8
       rect:
         serializedVersion: 2
-        x: 424
-        y: 320
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 396
+        y: 126
+        width: 106
+        height: 251
+      alignment: 9
+      pivot: {x: 0.5204943, y: 0.14372015}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: TaigaPack2_9
       rect:
         serializedVersion: 2
-        x: 518
-        y: 317
+        x: 519
+        y: 320
         width: 53
         height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4726712, y: 0.74138016}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,11 +337,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 541
-        y: 374
+        y: 384
         width: 72
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 90
+      alignment: 9
+      pivot: {x: 0.48994192, y: 0.30689427}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,12 +357,12 @@ TextureImporter:
       name: TaigaPack2_11
       rect:
         serializedVersion: 2
-        x: 555
-        y: 505
-        width: 51
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 544
+        y: 512
+        width: 62
+        height: 103
+      alignment: 9
+      pivot: {x: 0.51167935, y: 0.25393054}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,12 +378,12 @@ TextureImporter:
       name: TaigaPack2_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 21
         y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 89
+        height: 136
+      alignment: 9
+      pivot: {x: 0.49186346, y: 0.20182225}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,12 +399,12 @@ TextureImporter:
       name: TaigaPack2_13
       rect:
         serializedVersion: 2
-        x: 53
-        y: 0
-        width: 53.333332
-        height: 320
+        x: 40
+        y: 192
+        width: 172
+        height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -420,12 +420,12 @@ TextureImporter:
       name: TaigaPack2_14
       rect:
         serializedVersion: 2
-        x: 106
-        y: 0
-        width: 53.333332
-        height: 320
+        x: 151
+        y: 320
+        width: 101
+        height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -441,12 +441,12 @@ TextureImporter:
       name: TaigaPack2_15
       rect:
         serializedVersion: 2
-        x: 159
+        x: 160
         y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 59
+        height: 142
+      alignment: 9
+      pivot: {x: 0.536821, y: 0.20932175}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -462,12 +462,12 @@ TextureImporter:
       name: TaigaPack2_16
       rect:
         serializedVersion: 2
-        x: 212
-        y: 0
-        width: 53.333332
-        height: 320
+        x: 260
+        y: 319
+        width: 104
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -483,12 +483,12 @@ TextureImporter:
       name: TaigaPack2_17
       rect:
         serializedVersion: 2
-        x: 265
-        y: 0
-        width: 53.333332
-        height: 320
+        x: 276
+        y: 191
+        width: 91
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -504,12 +504,12 @@ TextureImporter:
       name: TaigaPack2_18
       rect:
         serializedVersion: 2
-        x: 318
+        x: 284
         y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 70
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5413801, y: 0.22673744}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,12 +525,12 @@ TextureImporter:
       name: TaigaPack2_19
       rect:
         serializedVersion: 2
-        x: 371
+        x: 382
         y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 132
+        height: 77
+      alignment: 9
+      pivot: {x: 0.52742976, y: 0.49059522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -546,12 +546,12 @@ TextureImporter:
       name: TaigaPack2_20
       rect:
         serializedVersion: 2
-        x: 424
+        x: 510
         y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 130
+        height: 98
+      alignment: 9
+      pivot: {x: 0.51061356, y: 0.3994136}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -567,12 +567,12 @@ TextureImporter:
       name: TaigaPack2_21
       rect:
         serializedVersion: 2
-        x: 477
-        y: 0
-        width: 53.333332
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 504
+        y: 254
+        width: 75
+        height: 40
+      alignment: 9
+      pivot: {x: 0.52896565, y: 0.6629318}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -588,12 +588,12 @@ TextureImporter:
       name: TaigaPack2_22
       rect:
         serializedVersion: 2
-        x: 518
-        y: 239
-        width: 57
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 581
+        y: 255
+        width: 59
+        height: 40
+      alignment: 9
+      pivot: {x: 0.51227325, y: 0.6448288}
       border: {x: 0, y: 1, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -613,8 +613,8 @@ TextureImporter:
         y: 319
         width: 53
         height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.48633617, y: 0.831899}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
