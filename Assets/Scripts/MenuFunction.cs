@@ -42,7 +42,7 @@ public class MenuFunction : MonoBehaviour
     // Player click choose dwarf map
     public void LoadDwarfMap()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     // Player click choose goblin map
@@ -50,5 +50,8 @@ public class MenuFunction : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    // Player click choose human map
+
 
 }
