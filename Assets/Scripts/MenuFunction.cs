@@ -48,7 +48,7 @@ public class MenuFunction : MonoBehaviour
     // Player click choose goblin map
     public void LoadGoblinMap()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(5);
     }
 
 }
