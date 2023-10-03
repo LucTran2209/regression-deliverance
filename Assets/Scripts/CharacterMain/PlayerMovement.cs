@@ -20,8 +20,6 @@ namespace Assets.Scripts
         private bool m_isGrounded = false;
         private bool m_isRolling = false;
         private int m_facingDirection = 1;
-        private int m_currentAttack = 0;
-        private float m_timeSinceAttack = 0.0f;
         private float m_delayToIdle = 0.0f;
         private readonly float m_rollDuration = 8.0f / 14.0f;
         private float m_rollCurrentTime;
@@ -38,8 +36,6 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
-            // Increase timer that controls attack combo
-            m_timeSinceAttack += Time.deltaTime;
 
             // Increase timer that checks roll duration
             if (m_isRolling)
@@ -86,28 +82,10 @@ namespace Assets.Scripts
             //Set AirSpeed in animator when jumping
             m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
           
-            //Attack
-            if (Input.GetKey(KeyCode.J) && m_timeSinceAttack > 0.25f && !m_isRolling)
-            {
-                m_currentAttack++;
 
-                // Loop back to one after third attack
-                if (m_currentAttack > 3)
-                    m_currentAttack = 1;
-
-                // Reset Attack combo if time since last attack is too large
-                if (m_timeSinceAttack > 1.0f)
-                    m_currentAttack = 1;
-
-                // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-                m_animator.SetTrigger("Attack" + m_currentAttack);
-
-                // Reset timer
-                m_timeSinceAttack = 0.0f;
-            }
 
             // Block
-            else if (Input.GetMouseButtonDown(1) && !m_isRolling)
+            if (Input.GetMouseButtonDown(1) && !m_isRolling)
             {
                 m_animator.SetTrigger("Block");
                 m_animator.SetBool("IdleBlock", true);
@@ -150,7 +128,23 @@ namespace Assets.Scripts
                 if (m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
             }
+
+            if (Input.GetKeyDown(KeyCode.H)){
+                this.GetComponent<Health>().TakeDmg(200);
+            }
+
         }
+
+
+		private void OnTriggerEnter2D(Collider2D collision)
+		{
+            
+			if(collision.tag == "Monster")
+            {
+                collision.GetComponent<Health>().TakeDmg(200);
+                Debug.Log(collision.GetComponent<Health>().current_health);
+            }
+		}
 	}
 }
 

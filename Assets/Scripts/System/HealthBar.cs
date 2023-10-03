@@ -6,12 +6,20 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
-    public Image fillBar;
-    public TextMeshProUGUI valueText;
-    public void UpdateBar(int currentBlood, int maxBlood)
+    [SerializeField] private Image max_health;
+    [SerializeField] private Image current_health;
+    [SerializeField] private Health health;
+    private float full_health;
+
+    private void Start()
     {
-        fillBar.fillAmount = (float)currentBlood / (float)maxBlood;
-        valueText.text = $"{currentBlood.ToString()}/{maxBlood.ToString()}";
+        full_health = health.current_health;
     }
+
+
+	private void Update()
+	{
+		current_health.fillAmount = health.current_health / full_health;
+	}
 
 }

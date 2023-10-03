@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float max_health = 500f;
-    private float current_health;
+    public float current_health { get; private set; }
     private Animator m_animator;
     private Rigidbody2D m_rigidbody;
     private Collider2D m_collider;
