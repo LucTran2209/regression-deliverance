@@ -52,10 +52,7 @@ public class PlayerCombat : MonoBehaviour
 
 		// Call one of three attack animations "Attack1", "Attack2", "Attack3"
 		animator.SetTrigger("Attack" + m_currentAttack);
-
-		// Detect enemies in range of attack
-		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayeres);
-
+		
 		//Calculate Damage Deal
 		float damageDeal = 0;
 		switch (m_currentAttack)
@@ -71,7 +68,10 @@ public class PlayerCombat : MonoBehaviour
 				break;
 			default: break;
 		}
-		Debug.Log(damageDeal);
+
+		// Detect enemies in range of attack
+		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayeres);
+
 		// Damage them
 		foreach(Collider2D enemy in hitEnemies)
 		{

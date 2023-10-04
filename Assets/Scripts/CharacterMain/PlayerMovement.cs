@@ -134,17 +134,6 @@ namespace Assets.Scripts
             }
 
         }
-
-
-		private void OnTriggerEnter2D(Collider2D collision)
-		{
-            
-			if(collision.tag == "Monster")
-            {
-                collision.GetComponent<Health>().TakeDmg(200);
-                Debug.Log(collision.GetComponent<Health>().current_health);
-            }
-		}
 	}
 }
 
