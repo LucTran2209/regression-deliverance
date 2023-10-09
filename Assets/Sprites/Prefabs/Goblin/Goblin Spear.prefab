@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 2184515709398766413}
   - component: {fileID: 1254159879963006618}
   - component: {fileID: 134944981856429043}
+  - component: {fileID: 3322057566051128128}
   - component: {fileID: 6328558874406984610}
   - component: {fileID: 5995421467960598781}
   m_Layer: 6
@@ -507,6 +508,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012887239, y: -0.13433972}
   m_Size: {x: 0.36573935, y: 0.6962599}
   m_Direction: 0
+--- !u!114 &3322057566051128128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7457356889410840846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3cd1cb348a2a4fbac8e28535c978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 100
+  Ammor: 0
+  Health: 1000
 --- !u!114 &6328558874406984610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,10 +564,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rayCastLengt: 0.7
+  AttackMethod:
+  - {fileID: 8708788611095432951}
+  - {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
   rangeDistance: 8
   rangeTimer: 2
   rangePosition: {fileID: 8770672099347686827}
-  spear: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
 --- !u!1 &8708788611095432951
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +581,7 @@ GameObject:
   - component: {fileID: 7491606895162861045}
   - component: {fileID: 4709013761117766138}
   - component: {fileID: 2275656871518731713}
+  - component: {fileID: 856536936875795242}
   m_Layer: 6
   m_Name: EnemyHitBox
   m_TagString: Untagged
@@ -646,6 +665,20 @@ MonoBehaviour:
   atkPoint: 100
   atkSpeed: 0
   atkScale: 0
+--- !u!114 &856536936875795242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708788611095432951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5aef3f450c3375499ee28305e38ff58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackBase: 0
+  AttackScale: 0
 --- !u!1001 &2358489678250393380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,8 +982,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3470798352374197381}
   m_SourcePrefab: {fileID: 100100000, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+--- !u!1 &1913207752729999747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+  m_PrefabInstance: {fileID: 8402822335546768908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &3470798352374197381
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913207752729999747}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &7937247631990503261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1925876865141115217, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}

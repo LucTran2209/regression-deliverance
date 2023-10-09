@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 1009972813466625717}
   - component: {fileID: 3514920931631158615}
   - component: {fileID: 5258425430726846197}
+  - component: {fileID: 6069414680729067569}
   m_Layer: 6
   m_Name: EnemyHitBox
   m_TagString: Untagged
@@ -125,6 +126,20 @@ MonoBehaviour:
   atkPoint: 200
   atkSpeed: 0
   atkScale: 0
+--- !u!114 &6069414680729067569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252490725413439374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5aef3f450c3375499ee28305e38ff58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackBase: 0
+  AttackScale: 0
 --- !u!1 &721206071960014612
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +152,7 @@ GameObject:
   - component: {fileID: 8643793757027333597}
   - component: {fileID: 7238343665777175193}
   - component: {fileID: 6924708624832001165}
+  - component: {fileID: 5670953135620002658}
   - component: {fileID: 5089606677609208865}
   - component: {fileID: 8581474165501985009}
   m_Layer: 6
@@ -251,6 +267,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5670953135620002658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721206071960014612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3cd1cb348a2a4fbac8e28535c978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 100
+  Ammor: 0
+  Health: 1000
 --- !u!114 &5089606677609208865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +323,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rayCastLengt: 0.7
+  AttackMethod:
+  - {fileID: 252490725413439374}
   quickDistance: 8
   quickTimer: 8
   chargeDistance: 12

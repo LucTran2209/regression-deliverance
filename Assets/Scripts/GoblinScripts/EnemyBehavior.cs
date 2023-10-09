@@ -20,6 +20,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 	[SerializeField] protected Transform rayCastGround; //Raycast to checkGround;
 	[SerializeField] protected LayerMask groundMark;
 	[SerializeField] protected float rayCastLengt;
+	[SerializeField] protected GameObject[] AttackMethod;
 	#endregion
 
 	#region Protected Variables
@@ -36,6 +37,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 	protected RaycastHit2D hitGround;
 	protected bool isGround;
 	protected Collider2D body;
+	private float AttackBase;
 	#endregion
 
 	protected virtual void Awake()
@@ -46,6 +48,11 @@ public abstract class EnemyBehavior : MonoBehaviour
 		rigi = GetComponent<Rigidbody2D>();
 		groundSensor = transform.Find("GroundSensor").GetComponent<SensorPlayer>();
 		body = GetComponent<Collider2D>();
+		AttackBase = GetComponent<AttributeManager>().Attack;
+		foreach(GameObject atk in AttackMethod)
+		{
+			atk.GetComponent<AttackDeal>().AttackBase = AttackBase;
+		}
 	}
 
 	private void Start()
@@ -163,18 +170,25 @@ public abstract class EnemyBehavior : MonoBehaviour
 	}
 	protected void Flip()
 	{
-		//Flip enemy to f2f player
-		Vector3 rotation = transform.eulerAngles;
-		if (transform.position.x > target.position.x)
+		try
 		{
-			rotation.y = 180f;
+			Vector3 rotation = transform.eulerAngles;
+			if (transform.position.x > target.position.x)
+			{
+				rotation.y = 180f;
+			}
+			else
+			{
+				rotation.y = 0f;
+			}
+			//Flip enemy to f2f player
+			transform.eulerAngles = rotation;
 		}
-		else
+		catch (Exception e)
 		{
-			rotation.y = 0f;
+			SelectTarget();
 		}
-
-		transform.eulerAngles = rotation;
+		
 	}
 	protected abstract void EnemyLogic();
 	protected void AttackMode()

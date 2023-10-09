@@ -53,7 +53,7 @@ public class AttributeManager : MonoBehaviour
 
 	public void TakeDmg(float damage)
 	{
-		Health = Mathf.Clamp((damage - Ammor / 100 * damage) * (1 - damageRessitance / 100), 0, maxHealth);
+		Health = Mathf.Clamp(Health - (damage - Ammor / 100 * damage) * (100 - damageRessitance) / 100, 0, maxHealth);
 
 		if (Health <= 0)
 		{

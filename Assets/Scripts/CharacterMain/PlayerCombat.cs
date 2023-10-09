@@ -87,8 +87,8 @@ public class PlayerCombat : MonoBehaviour
 
 	private void DealDmg(Collider2D enemy ,float damage)
 	{
-		enemy.GetComponent<Health>().TakeDmg(damage);
-		Debug.Log(enemy.GetComponent<Health>().current_health);
+		enemy.GetComponent<AttributeManager>().TakeDmg(damage);
+		Debug.Log(enemy.GetComponent<AttributeManager>().Health);
 
 	}
 

@@ -9,7 +9,6 @@ public class GoblinSpearBehavior : EnemyBehavior
 	[SerializeField] protected float rangeDistance; // Minium Distance for range attack
 	[SerializeField] protected float rangeTimer;
 	[SerializeField] protected Transform rangePosition;
-	[SerializeField] GameObject spear;
 	#endregion
 
 	#region Private Variables
@@ -78,7 +77,7 @@ public class GoblinSpearBehavior : EnemyBehavior
 
 	public void thownSpear()
 	{
-		GameObject shootSpear = Instantiate(spear, rangePosition.position, Quaternion.identity);
+		GameObject shootSpear = Instantiate(AttackMethod[1], rangePosition.position, Quaternion.identity);
 		shootSpear.transform.position = rangePosition.position;
 		shootSpear.GetComponent<Projectiles>().SetDirection(target);
 		shootSpear.GetComponent<Projectiles>().Shoot();

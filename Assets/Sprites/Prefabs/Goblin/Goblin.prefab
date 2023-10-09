@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 7930402566528968210}
   - component: {fileID: 210300252745355551}
   - component: {fileID: 8378529583101085899}
+  - component: {fileID: 8367600139756910644}
   m_Layer: 0
   m_Name: EnemyHitbox
   m_TagString: Untagged
@@ -376,6 +377,20 @@ MonoBehaviour:
   atkPoint: 100
   atkSpeed: 0
   atkScale: 0
+--- !u!114 &8367600139756910644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530787544344270853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5aef3f450c3375499ee28305e38ff58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackBase: 0
+  AttackScale: 0
 --- !u!1 &7863491618910010944
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +433,7 @@ GameObject:
   - component: {fileID: 9094619391547101006}
   - component: {fileID: 8415443219355906405}
   - component: {fileID: 3454417331766379981}
+  - component: {fileID: 5657007946106170520}
   - component: {fileID: 8384397342861000066}
   - component: {fileID: 6331074541435393243}
   - component: {fileID: 3338518361563377127}
@@ -497,6 +513,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5657007946106170520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8518373038640411418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3cd1cb348a2a4fbac8e28535c978a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 100
+  Ammor: 0
+  Health: 500
 --- !u!114 &8384397342861000066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +556,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rayCastLengt: 0.7
+  AttackMethod:
+  - {fileID: 7530787544344270853}
 --- !u!70 &6331074541435393243
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
