@@ -79,7 +79,13 @@ public class PlayerCombat : MonoBehaviour
 			{
 				DealDmg(enemy, damageDeal);
 			}
-		}
+
+            if (enemy.tag == "Wolf")
+            {
+				Debug.Log("Hit Wolf");
+                enemy.GetComponent<WolfHealth>().TakeDamage(damageDeal);		
+            }
+        }
 
 		// Reset timer
 		m_timeSinceAttack = 0.0f;
