@@ -58,6 +58,9 @@ public class Projectiles : MonoBehaviour
     {
         shoot = true;
 		directionShoot = (target.position - transform.position).normalized;
+
+        float rot = Mathf.Atan2(-directionShoot.y, -directionShoot.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0,0, rot + 90);
     }
 
     public void SetDirection(Transform _target)

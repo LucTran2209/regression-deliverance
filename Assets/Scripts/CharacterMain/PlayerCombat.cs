@@ -75,7 +75,10 @@ public class PlayerCombat : MonoBehaviour
 		// Damage them
 		foreach(Collider2D enemy in hitEnemies)
 		{
-			DealDmg(enemy, damageDeal);
+			if(enemy.tag == "Monster")
+			{
+				DealDmg(enemy, damageDeal);
+			}
 		}
 
 		// Reset timer
