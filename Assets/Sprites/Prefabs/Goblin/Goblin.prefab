@@ -344,7 +344,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.09462297, y: -0.12616372}
@@ -372,8 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb0bdb89be4a30469e9fb6d4f1823ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3454417331766379981}
+  body: {fileID: 8415443219355906405}
   atkPoint: 100
+  atkSpeed: 0
+  atkScale: 0
 --- !u!1 &7863491618910010944
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +517,7 @@ MonoBehaviour:
   scanHeight: 3
   attackDistance: 2
   moveSpeed: 1
-  timer: 3
+  timer: 2
   leftLimit: {fileID: 0}
   rightLimit: {fileID: 0}
   rayCastGround: {fileID: 1281101333189438600}
@@ -570,4 +572,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a73dcfe8ecdd1847b615f9c8097c0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 500
+  max_health: 1500
