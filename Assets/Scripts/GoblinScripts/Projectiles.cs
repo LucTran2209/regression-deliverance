@@ -14,6 +14,7 @@ public class Projectiles : MonoBehaviour
     private bool shoot;
     private Animator animator;
     private Collider2D hitBox;
+    private Rigidbody2D rigi;
 
 
 
@@ -22,6 +23,7 @@ public class Projectiles : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         hitBox = GetComponent<Collider2D>();
+        rigi = GetComponent<Rigidbody2D>();
         hit = true;
     }
 
@@ -44,11 +46,10 @@ public class Projectiles : MonoBehaviour
 
         if(shoot)
         {
-            float movermentSpeed = speed * Time.deltaTime;
-            transform.position += directionShoot * movermentSpeed;
+            rigi.velocity = directionShoot * speed;
         }
 
-        if(lifetime < 0)
+        if (lifetime < 0)
             {
                 DeActive();
             }
@@ -60,7 +61,7 @@ public class Projectiles : MonoBehaviour
 		directionShoot = (target.position - transform.position).normalized;
 
         float rot = Mathf.Atan2(-directionShoot.y, -directionShoot.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0, rot + 90);
+        transform.rotation = Quaternion.Euler(0,0, rot - 180);
     }
 
     public void SetDirection(Transform _target)
@@ -77,14 +78,20 @@ public class Projectiles : MonoBehaviour
 	{
 		if(trig.tag == "Player")
         {
+            rigi.velocity = Vector2.zero;
             hit = true;
             hitBox.enabled = false;
             animator.SetTrigger("Hit");
         }
-	}
 
-    private void DeActive()
+        if (trig.gameObject.layer == LayerMask.GetMask("Enemy"))
+        {
+			Physics2D.IgnoreCollision(hitBox, trig.GetComponent<Collider2D>());
+
+		}
+	}
+	private void DeActive()
     {
-        gameObject.SetActive (false);
+        Destroy(gameObject);
     }
 }

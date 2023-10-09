@@ -41,7 +41,7 @@ public class GoblinAttack : MonoBehaviour
         if (trig.tag == "Player")
 		{
 			atkSpeed = body.velocity.magnitude;
-			trig.GetComponent<Health>().TakeDmg(dmg + atkSpeed * 10);
+			trig.GetComponent<PlayerHealth>().TakeDmg(dmg + atkSpeed * 10);
 		}
 	}
 }

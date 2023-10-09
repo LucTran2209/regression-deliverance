@@ -40,16 +40,20 @@ public abstract class EnemyBehavior : MonoBehaviour
 
 	protected virtual void Awake()
 	{
-		SelectTarget();
-		intTimer = timer;
-
+/*		SelectTarget();
+*/		intTimer = timer;
 		animator = GetComponent<Animator>();
 		rigi = GetComponent<Rigidbody2D>();
 		groundSensor = transform.Find("GroundSensor").GetComponent<SensorPlayer>();
 		body = GetComponent<Collider2D>();
 	}
 
-    protected virtual void Update()
+	private void Start()
+	{
+		if (leftLimit != null && rightLimit != null) SelectTarget();
+	}
+
+	protected virtual void Update()
     {
 		//Check on Ground
 		CheckGround();
@@ -63,8 +67,9 @@ public abstract class EnemyBehavior : MonoBehaviour
 			Move();
 		}
 		
-		//Check path can move?
-		RayCastDeBugger();
+/*		//Check path can move?
+		RayCastDeBugger();*/
+
 		if (!checkPath())
 		{
 			//Set stand in place
@@ -186,7 +191,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 		//Check moving in range area
 		return leftLimit.position.x < transform.position.x && transform.position.x < rightLimit.position.x;
 	}
-	private void SelectTarget()
+	public void SelectTarget()
 	{
 		float distanceToLeft = Vector2.Distance(transform.position, leftLimit.position);
 		float distanceToRight = Vector2.Distance(transform.position, rightLimit.position);
@@ -243,7 +248,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 	}
 	#endregion
 
-	#region Debug tool
+	/*#region Debug tool
 	private void RayCastDeBugger()
 	{
 		Debug.DrawRay(rayCastGround.position, Vector2.down * rayCastLengt, Color.red);
@@ -258,7 +263,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 		Gizmos.matrix = Matrix4x4.TRS(boxPosition, transform.rotation, boxSize);
 		Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
 	}
-	#endregion
+	#endregion*/
 
 	#region Cooldown
 	private void Cooldown()
