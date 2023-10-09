@@ -6,6 +6,12 @@ namespace Assets.Scripts
 {
     public class PlayerMovement : MonoBehaviour
     {
+        // Attack
+        public Transform attackPoint;
+        public float attackRange = 0.5f;
+        public LayerMask enermyMask;
+        public float AttackDamage = 50;
+
 
         [SerializeField] float m_speed = 4.0f;
         [SerializeField] float m_jumpForce = 7.5f;
@@ -89,6 +95,7 @@ namespace Assets.Scripts
             //Attack
             if (Input.GetKey(KeyCode.J) && m_timeSinceAttack > 0.25f && !m_isRolling)
             {
+               
                 m_currentAttack++;
 
                 // Loop back to one after third attack
@@ -101,6 +108,15 @@ namespace Assets.Scripts
 
                 // Call one of three attack animations "Attack1", "Attack2", "Attack3"
                 m_animator.SetTrigger("Attack" + m_currentAttack);
+
+                //----------------------------------------------------
+                Collider2D[] hitEnermies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enermyMask);
+                foreach (Collider2D enemy in hitEnermies)
+                {
+                    Debug.Log("We hit " + enemy.name);
+                    enemy.GetComponent<EnermyScript>().TakeDamage(AttackDamage);
+                }
+                //----------------------------------------------------
 
                 // Reset timer
                 m_timeSinceAttack = 0.0f;
@@ -150,7 +166,15 @@ namespace Assets.Scripts
                 if (m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
             }
-        }       
+        }
+
+        public void OnDrawGizmosSelected()
+        {
+            if (attackPoint == null) return;
+
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
     }
+
 }
 
