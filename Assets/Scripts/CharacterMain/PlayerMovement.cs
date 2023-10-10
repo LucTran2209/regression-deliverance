@@ -10,8 +10,6 @@ namespace Assets.Scripts
         [SerializeField] float m_speed = 4.0f;
         [SerializeField] float m_jumpForce = 7.5f;
         [SerializeField] float m_rollForce = 6.0f;
-        // [SerializeField] bool m_noBlood = false;
-        // [SerializeField] GameObject m_slideDust;
 
         private Animator m_animator;
         private Rigidbody2D m_body2d;
@@ -127,10 +125,6 @@ namespace Assets.Scripts
                 m_delayToIdle -= Time.deltaTime;
                 if (m_delayToIdle < 0)
                     m_animator.SetInteger("AnimState", 0);
-            }
-
-            if (Input.GetKeyDown(KeyCode.H)){
-                this.GetComponent<Health>().TakeDmg(200);
             }
 
         }

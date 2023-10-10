@@ -1973,7 +1973,7 @@ GameObject:
   - component: {fileID: 1994149239}
   - component: {fileID: 1994149238}
   m_Layer: 5
-  m_Name: AngelMap
+  m_Name: BearMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2045,7 +2045,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 129867752}
         m_TargetAssemblyTypeName: MenuFunction, Assembly-CSharp
-        m_MethodName: LoadAngelMap
+        m_MethodName: LoadBearMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

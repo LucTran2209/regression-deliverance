@@ -24,31 +24,31 @@ public class MenuFunction : MonoBehaviour
     // Player click choose dragon map
     public void LoadDragonMap()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     // Player click choose Elf map
     public void LoadElfMap()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
-    // Player click choose angel map
-    public void LoadAngelMap()
+    // Player click choose Bear map
+    public void LoadBearMap()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 
     // Player click choose dwarf map
     public void LoadDwarfMap()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(6);
     }
 
     // Player click choose goblin map
     public void LoadGoblinMap()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(7);
     }
 
 }

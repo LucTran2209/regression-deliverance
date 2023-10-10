@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]    float           maxHealth;
     private             float           currentHealth;
 
+    // Khai báo Animator
+    [SerializeField]    Animator        animator;
 
     // Khai báo biên UI
     [SerializeField]    Slider          playerHealthSlider;
@@ -21,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         playerHealthSlider.maxValue  = maxHealth;
         playerHealthSlider.value = currentHealth;
-        txtBlood.text = $"{currentHealth} / {maxHealth}";
+        txtBlood.text = $"{currentHealth} / {maxHealth}";      
     }
 
     // Update is called once per frame
@@ -34,5 +36,22 @@ public class PlayerHealth : MonoBehaviour
 
         playerHealthSlider.value = currentHealth;
         txtBlood.text = $"{currentHealth} / {maxHealth}";
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        currentHealth -= damage;
+
+        // Set animation hurt & death
+        if (currentHealth > 0 )
+        {
+            animator.SetTrigger("Hit");
+        }
+        if (currentHealth <= 0 )
+        {
+            animator.SetTrigger("Death");
+
+        }
+
     }
 }
