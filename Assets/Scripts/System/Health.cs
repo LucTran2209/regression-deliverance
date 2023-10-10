@@ -24,7 +24,6 @@ public class Health : MonoBehaviour
     private int hitCount = 0;
     private int hitMax = 3;
 
-
 	// Start is called before the first frame update
 	void Awake()
     {
@@ -66,6 +65,7 @@ public class Health : MonoBehaviour
     {
         current_health = Mathf.Clamp(current_health - dmg, 0, max_health);
             if (current_health <= 0) {
+
 			    //Death
 			    m_animator.SetTrigger("Death");
                 m_rigidbody.gravityScale = 0;
@@ -80,6 +80,7 @@ public class Health : MonoBehaviour
 			    {
                 IncreaseHit();
 			    }
+
 			    //Hit
 			    m_animator.SetTrigger("Hit");
 

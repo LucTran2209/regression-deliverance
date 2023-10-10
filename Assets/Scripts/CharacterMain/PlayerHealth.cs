@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -6,14 +6,16 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Khai b·o m·u 
+    // Khai b√°o m√°u 
     [SerializeField]    float           maxHealth;
     private             float           currentHealth;
 
-    // Khai b·o Animator
-    [SerializeField]    Animator        animator;
+    // Khai b√°o component
+    [SerializeField] private Animator       m_animator;
+    [SerializeField] private Rigidbody2D    m_rigidbody;
+    [SerializeField] private Collider2D     m_collider;
 
-    // Khai b·o biÍn UI
+    // Khai b√°o bi√™n UI
     [SerializeField]    Slider          playerHealthSlider;
     [SerializeField]    TextMeshProUGUI txtBlood;
 
@@ -23,7 +25,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         playerHealthSlider.maxValue  = maxHealth;
         playerHealthSlider.value = currentHealth;
-        txtBlood.text = $"{currentHealth} / {maxHealth}";      
+        txtBlood.text = $"{currentHealth} / {maxHealth}";
+
+        m_animator = GetComponent<Animator>();
+        m_collider = GetComponent<Collider2D>();
+        m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -45,13 +51,21 @@ public class PlayerHealth : MonoBehaviour
         // Set animation hurt & death
         if (currentHealth > 0 )
         {
-            animator.SetTrigger("Hit");
+            m_animator.SetTrigger("Hit");
         }
         if (currentHealth <= 0 )
         {
-            animator.SetTrigger("Death");
-
+            currentHealth = 0;
+            m_animator.SetTrigger("Death");
+            m_rigidbody.gravityScale = 0;
+            m_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            m_collider.enabled = false;
+            StartCoroutine(DestroyAfterSeconds(3f));  // Chuy·ªÉn Scene k·∫øt th√∫c       
         }
 
+    }
+    IEnumerator DestroyAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);      
     }
 }
