@@ -87,7 +87,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5895223934700702086}
   - component: {fileID: 4893047147639281233}
-  - component: {fileID: 4184101364908684211}
   - component: {fileID: 5974472477478077467}
   m_Layer: 6
   m_Name: EnemyHitBox
@@ -156,22 +155,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48780823, y: 0.25397825}
   m_EdgeRadius: 0
---- !u!114 &4184101364908684211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855525476945155564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb0bdb89be4a30469e9fb6d4f1823ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body: {fileID: 910949389376862700}
-  atkPoint: 120
-  atkSpeed: 0
-  atkScale: 0
 --- !u!114 &5974472477478077467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackBase: 0
-  AttackScale: 0
+  AttackScale: 3
 --- !u!1 &1525218160687900380
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +181,6 @@ GameObject:
   - component: {fileID: 910949389376862700}
   - component: {fileID: 2863656158253088191}
   - component: {fileID: 6344362447489196978}
-  - component: {fileID: 2972238993013717647}
   - component: {fileID: 5682235610114354525}
   - component: {fileID: 1005491367486028909}
   m_Layer: 6
@@ -303,22 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f3cd1cb348a2a4fbac8e28535c978a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack: 100
+  Attack: 200
   Ammor: 0
-  Health: 1500
---- !u!114 &2972238993013717647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525218160687900380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a73dcfe8ecdd1847b615f9c8097c0c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max_health: 1500
+  Health: 900
 --- !u!114 &5682235610114354525
 MonoBehaviour:
   m_ObjectHideFlags: 0

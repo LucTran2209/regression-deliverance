@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 1925876865141115217}
   - component: {fileID: 8872456852283463147}
   - component: {fileID: 9155934495862971611}
-  - component: {fileID: 2097471833747423360}
   - component: {fileID: 1041618878296594027}
+  - component: {fileID: 2097471833747423360}
   - component: {fileID: 2394279877702113022}
   m_Layer: 6
   m_Name: Spear
@@ -187,21 +187,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8530097, y: 0.15972066}
   m_EdgeRadius: 0
---- !u!114 &2097471833747423360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7931338347128358799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07aa27ffc088f4541976cd98adad27bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  target: {fileID: 0}
-  lifetime: 10
 --- !u!50 &1041618878296594027
 Rigidbody2D:
   serializedVersion: 4
@@ -229,6 +214,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2097471833747423360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931338347128358799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07aa27ffc088f4541976cd98adad27bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  target: {fileID: 0}
+  lifetime: 10
 --- !u!114 &2394279877702113022
 MonoBehaviour:
   m_ObjectHideFlags: 0

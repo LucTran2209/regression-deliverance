@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,9 +9,12 @@ public class GoblinMageBehavior : EnemyBehavior
 	#region SerializeField Variables
 	[SerializeField] private float quickDistance; // Minium Distance for quick attack
 	[SerializeField] private float quickTimer; // Time cooldown quick attack
+	[SerializeField] private List<Transform> quickPositions; // Time cooldown quick attack
+
 
 	[SerializeField] private float chargeDistance;
 	[SerializeField] private float chargeTimer;
+	[SerializeField] private Transform chargePosition;
 
 	[SerializeField] private float summonHP; // Minium Distance for throw attack
 	[SerializeField] private List<GameObject> enemySummon;
@@ -21,9 +25,11 @@ public class GoblinMageBehavior : EnemyBehavior
 	#region Private Variables
 	private bool quickCooling;
 	private float intQuickTimer;
+	private List<GameObject> fireBalls;
 
 	private bool chargeCooling;
 	private float intChargeTimer;
+	private GameObject thunderBird;
 
 	private bool isSummon;
 	#endregion
@@ -33,12 +39,17 @@ public class GoblinMageBehavior : EnemyBehavior
 		base.Awake();
 		intChargeTimer = chargeTimer;
 		intQuickTimer = quickTimer;
+	}
 
-		foreach (GameObject enemy in enemySummon)
-		{
-			enemy.GetComponent<EnemyBehavior>().leftLimit = leftLimit;
-			enemy.GetComponent <EnemyBehavior>().rightLimit = rightLimit;
-		}
+	private void SetLimits(GameObject enemy)
+	{
+		enemy.GetComponent<EnemyBehavior>().leftLimit = leftLimit;
+		enemy.GetComponent<EnemyBehavior>().rightLimit = rightLimit;
+	}
+
+	private void Start()
+	{
+		
 	}
 
 	// Update is called once per frame
@@ -61,7 +72,7 @@ public class GoblinMageBehavior : EnemyBehavior
 	protected override void EnemyLogic()
 	{
 		distance = Vector2.Distance(transform.position, target.position);
-		float hp = GetComponent<Health>().current_health / GetComponent<Health>().max_health;
+		float hp = GetComponent<AttributeManager>().Health / GetComponent<AttributeManager>().GetMaxHealth();
 		if (!isSummon && !cheackAnimationAttack() && hp <= summonHP)
 		{
 			if(attackDistance >= distance)
@@ -116,12 +127,68 @@ public class GoblinMageBehavior : EnemyBehavior
 	{
 		AttackMode();
 		animator.SetTrigger("Charge");
+
+	}
+
+	public void CreateThunderBird()
+	{
+        thunderBird = null;
+        thunderBird = Instantiate(AttackMethod[2], chargePosition.position, Quaternion.identity);
+        thunderBird.GetComponent<Projectiles>().SetDirection(target);
+    }
+
+	public void shootThunderBird()
+	{
+		try
+		{
+			thunderBird.GetComponent<Projectiles>().Shoot();
+
+		}
+		catch (MissingReferenceException e)
+		{
+
+		}
 	}
 
 	private void QuickAttack()
 	{
 		AttackMode();
 		animator.SetTrigger("Quick");
+/*		StartCoroutine(CreateFireBall(0.25f));
+*/	}
+
+	public IEnumerator CreateFireBall(float time)
+	{
+		fireBalls = new List<GameObject>(); ;
+		foreach (Transform quickPosition in quickPositions)
+		{
+			GameObject fireBall = Instantiate(AttackMethod[1], quickPosition.position, Quaternion.identity);
+			fireBall.GetComponent<Projectiles>().SetDirection(target);
+			fireBalls.Add(fireBall);
+			yield return new WaitForSeconds(time);
+		}
+	}
+
+	private IEnumerator WaitShoot(float time)
+	{
+		foreach (GameObject fireBall in fireBalls)
+		{
+			fireBall.GetComponent<Projectiles>().Shoot();
+			yield return new WaitForSeconds(time);
+		}
+
+	}
+
+	public void ShootFireBall()
+	{
+		try
+		{
+				StartCoroutine(WaitShoot(0.25f));
+		}
+		catch (MissingReferenceException e)
+		{
+
+		}
 	}
 
 	private void Summon()
@@ -140,7 +207,8 @@ public class GoblinMageBehavior : EnemyBehavior
 	{
 		for (int i = 0; i < summonNumber; i++) {
 			int index = Random.Range(0, enemySummon.Count);
-			Instantiate(enemySummon[index], summonPosition.position, Quaternion.identity);
+			GameObject enemy = Instantiate(enemySummon[index], summonPosition.position, Quaternion.identity);
+			SetLimits(enemy);
 			yield return new WaitForSeconds(0.5f);
 		}
 		animator.SetBool("Summoning", false);

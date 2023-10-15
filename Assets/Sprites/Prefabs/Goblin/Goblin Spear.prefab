@@ -520,9 +520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f3cd1cb348a2a4fbac8e28535c978a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack: 100
+  Attack: 120
   Ammor: 0
-  Health: 1000
+  Health: 800
 --- !u!114 &6328558874406984610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +580,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7491606895162861045}
   - component: {fileID: 4709013761117766138}
-  - component: {fileID: 2275656871518731713}
   - component: {fileID: 856536936875795242}
   m_Layer: 6
   m_Name: EnemyHitBox
@@ -649,22 +648,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19114833, y: 0.17573488}
   m_EdgeRadius: 0
---- !u!114 &2275656871518731713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8708788611095432951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb0bdb89be4a30469e9fb6d4f1823ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body: {fileID: 1254159879963006618}
-  atkPoint: 100
-  atkSpeed: 0
-  atkScale: 0
 --- !u!114 &856536936875795242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackBase: 0
-  AttackScale: 0
+  AttackScale: 0.5
 --- !u!1001 &2358489678250393380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,6 +708,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925876865141115217, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394279877702113022, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      propertyPath: AttackBase
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
@@ -789,6 +776,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2394279877702113022, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      propertyPath: AttackBase
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
       propertyPath: m_Name
       value: Spear (1)
@@ -849,6 +840,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925876865141115217, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394279877702113022, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      propertyPath: AttackBase
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
@@ -913,6 +908,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2394279877702113022, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      propertyPath: AttackBase
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
       propertyPath: m_Name
       value: Spear (4)
@@ -973,6 +972,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925876865141115217, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394279877702113022, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}
+      propertyPath: AttackBase
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7931338347128358799, guid: b0932b19bd8dee94ab45541e06e8d28b, type: 3}

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Projectiles : MonoBehaviour
@@ -41,8 +43,8 @@ public class Projectiles : MonoBehaviour
 
         if(!hit && !shoot)
         {
-
-        }
+			Flip();
+		}
 
         if(shoot)
         {
@@ -55,16 +57,39 @@ public class Projectiles : MonoBehaviour
             }
     }
 
-    public void Shoot()
+	private void Flip()
+	{
+		Vector3 rotation = transform.eulerAngles;
+		if (transform.position.x > target.position.x)
+		{
+			rotation.y = 180f;
+		}
+		else
+		{
+			rotation.y = 0f;
+		}
+		//Flip enemy to f2f player
+		transform.eulerAngles = rotation;
+	}
+
+	public void Shoot()
     {
         shoot = true;
 		directionShoot = (target.position - transform.position).normalized;
+        if(directionShoot.x > 0f)
+        {
+            float rot = Mathf.Atan2(-directionShoot.y, -directionShoot.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0,0, rot - 180);
+        }
+        else
+        {
+			float rot = Mathf.Atan2(directionShoot.y, -directionShoot.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0, 180, rot);
+		}
 
-        float rot = Mathf.Atan2(-directionShoot.y, -directionShoot.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0, rot - 180);
-    }
+	}
 
-    public void SetDirection(Transform _target)
+	public void SetDirection(Transform _target)
     {
         lifetime = 10f;
         gameObject.SetActive(true);

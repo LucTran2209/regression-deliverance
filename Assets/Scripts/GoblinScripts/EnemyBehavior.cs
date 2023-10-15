@@ -42,8 +42,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 
 	protected virtual void Awake()
 	{
-/*		SelectTarget();
-*/		intTimer = timer;
+		intTimer = timer;
 		animator = GetComponent<Animator>();
 		rigi = GetComponent<Rigidbody2D>();
 		groundSensor = transform.Find("GroundSensor").GetComponent<SensorPlayer>();
@@ -135,27 +134,38 @@ public abstract class EnemyBehavior : MonoBehaviour
 	}
 	protected virtual void Move()
 	{
-		if (target.tag == "Player")
+		try
 		{
-			animator.SetBool("Run", true);
-			animator.SetBool("Walk", false);
-			if (!cheackAnimationAttack())
+			if(target == null)
 			{
-				Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
-				Vector2 direction = (targetPosition - rigi.position).normalized;
-				rigi.velocity = new Vector2(direction.x * moveSpeed * 2.5f, rigi.velocity.y);
+				SelectTarget();
 			}
-		}
-		else
+			if (target.tag == "Player")
+			{
+				animator.SetBool("Run", true);
+				animator.SetBool("Walk", false);
+				if (!cheackAnimationAttack())
+				{
+					Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+					Vector2 direction = (targetPosition - rigi.position).normalized;
+					rigi.velocity = new Vector2(direction.x * moveSpeed * 2.5f, rigi.velocity.y);
+				}
+			}
+			else
+			{
+				animator.SetBool("Walk", true);
+				animator.SetBool("Run", false);
+				if (!cheackAnimationAttack())
+				{
+					Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+					Vector2 direction = (targetPosition - rigi.position).normalized;
+					rigi.velocity = new Vector2(direction.x * moveSpeed, rigi.velocity.y);
+				}
+			}
+
+		}catch (Exception e)
 		{
-			animator.SetBool("Walk", true);
-			animator.SetBool("Run", false);
-			if (!cheackAnimationAttack())
-			{
-				Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
-				Vector2 direction = (targetPosition - rigi.position).normalized;
-				rigi.velocity = new Vector2(direction.x * moveSpeed, rigi.velocity.y);
-			}
+			Debug.Log("No Limits");
 		}
 	}
 	protected void Attack()

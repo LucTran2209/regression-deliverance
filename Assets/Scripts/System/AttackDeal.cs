@@ -15,6 +15,24 @@ public class AttackDeal : MonoBehaviour
 		{
 			trig.GetComponent<PlayerHealth>().TakeDmg(AttackBase*AttackScale);
 		}
+
+        if(trig.tag == "Monster")
+        {
+            Physics2D.IgnoreCollision(trig, GetComponent<Collider2D>());
+        }
 	}
+
+    private void OnCollisionEnter2D(Collision2D trig)
+    {
+        if (trig.gameObject.tag == "Player")
+        {
+            trig.gameObject.GetComponent<PlayerHealth>().TakeDmg(AttackBase * AttackScale);
+        }
+
+        if (trig.gameObject.tag == "Monster")
+        {
+            Physics2D.IgnoreCollision(trig.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
 
 }

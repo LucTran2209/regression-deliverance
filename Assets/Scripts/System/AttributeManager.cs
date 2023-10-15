@@ -14,6 +14,8 @@ public class AttributeManager : MonoBehaviour
     private float maxHealth;
     private float damageRessitance = 0f;
     private Animator animator;
+	private Collider2D colider2d;
+	private Rigidbody2D rigidbody2d;
 
 	private bool isResistance; // Kháng gián đoạn
 	private float resistanceDuration = 0f;
@@ -22,13 +24,20 @@ public class AttributeManager : MonoBehaviour
 	private float hitDuration = 0f;
 	private int hitCount = 0;
 	private int hitMax = 3;
+	private bool death;
 	#endregion
 
+	public float GetMaxHealth()
+	{
+		return maxHealth;
+	}
 	// Start is called before the first frame update
 	private void Awake()
 	{
 		maxHealth = Health;
 		animator = GetComponent<Animator>();
+		colider2d = GetComponent<Collider2D>();
+		rigidbody2d = GetComponent<Rigidbody2D>();
 	}
 
 	// Update is called once per frame
@@ -59,6 +68,7 @@ public class AttributeManager : MonoBehaviour
 		{
 			//Death
 			animator.SetTrigger("Death");
+			death = true;
 			Destroy(gameObject, 3f);
 		}
 
@@ -76,15 +86,13 @@ public class AttributeManager : MonoBehaviour
 		}
 	}
 
-/*	public void DealDamge(GameObject target)
+	private void OnTriggerEnter2D(Collider2D trig)
 	{
-		var atm = target.GetComponent<AttributeManager>();
-		if(atm != null)
+		if (trig.tag != "Ground" && death) 
 		{
-			atm.TakeDmg(Attack);
+			Physics2D.IgnoreCollision(trig.GetComponent<Collider2D>(), colider2d);
 		}
-	}*/
-
+	}
 
 	private void Hit()
 	{
