@@ -23,7 +23,7 @@ public class AttributeManager : MonoBehaviour
 	private bool isHit;
 	private float hitDuration = 0f;
 	private int hitCount = 0;
-	private int hitMax = 3;
+	private int hitMax = 2;
 	private bool death;
 	#endregion
 
@@ -64,7 +64,7 @@ public class AttributeManager : MonoBehaviour
 	{
 		Health = Mathf.Clamp(Health - (damage - Ammor / 100 * damage) * (100 - damageRessitance) / 100, 0, maxHealth);
 
-		if (Health <= 0)
+		if (Health <= 0 && !death)
 		{
 			//Death
 			animator.SetTrigger("Death");
@@ -86,7 +86,7 @@ public class AttributeManager : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D trig)
+    private void OnTriggerStay2D(Collider2D trig)
 	{
 		if (trig.tag != "Ground" && death) 
 		{
