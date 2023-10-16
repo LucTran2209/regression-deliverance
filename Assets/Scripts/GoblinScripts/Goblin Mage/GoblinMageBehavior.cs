@@ -47,11 +47,6 @@ public class GoblinMageBehavior : EnemyBehavior
 		enemy.GetComponent<EnemyBehavior>().rightLimit = rightLimit;
 	}
 
-	private void Start()
-	{
-		
-	}
-
 	// Update is called once per frame
 	protected override void Update()
     {
@@ -173,22 +168,24 @@ public class GoblinMageBehavior : EnemyBehavior
 	{
 		foreach (GameObject fireBall in fireBalls)
 		{
-			fireBall.GetComponent<Projectiles>().Shoot();
-			yield return new WaitForSeconds(time);
+            try
+            {
+                fireBall.GetComponent<Projectiles>().Shoot();
+			}
+			catch (MissingReferenceException e)
+			{
+
+			}
+        yield return new WaitForSeconds(time);
 		}
 
 	}
 
 	public void ShootFireBall()
 	{
-		try
-		{
-				StartCoroutine(WaitShoot(0.25f));
-		}
-		catch (MissingReferenceException e)
-		{
 
-		}
+				StartCoroutine(WaitShoot(0.25f));
+
 	}
 
 	private void Summon()
